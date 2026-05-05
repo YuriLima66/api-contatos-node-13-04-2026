@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "jest --detectOpenHandles --forceExit"
+    "test": "jest",
+    "mongo:up": "docker compose up -d",
+    "mongo:down": "docker compose down"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
@@ -20,6 +22,7 @@
     "node": "18.x"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": ["<rootDir>/test/setupAfterEnv.js"]
   }
 }
